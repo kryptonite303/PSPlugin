@@ -1,2 +1,4 @@
-# psplugincore
-This will be the core plugin code that will be used at wordpress.org
+# PadSquad Plugin Extended
+This plugin contains the code for the Simpli interface on the options screen as well as the automatic updating in the backend of the plugin.
+
+This plugin will be hosted on AWS, while the core will be hosted on Wordpress.
