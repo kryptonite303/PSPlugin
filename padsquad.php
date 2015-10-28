@@ -4,7 +4,7 @@ Plugin Name: PadSquad
 Plugin URI: http://padsquad.com/
 Description: PadSquad's mobile template solution
 Author: John Chen
-Version: 1.0.11
+Version: 1.1.0
 Author URI: http://padsquad.com/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
