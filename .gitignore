@@ -1,0 +1,7 @@
+.buildpath
+.project
+.settings
+bld
+*.zip
+aws-keys.json
+node_modules
