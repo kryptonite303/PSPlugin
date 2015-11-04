@@ -24,10 +24,13 @@ module.exports = function(grunt) {
         }
 
         grunt.file.write("update.json", JSON.stringify(updateJson));
+
+        return updateJson;
     })();
 
     grunt.initConfig({
         aws: readAWS(),
+        updateJson: updateJson,
         imagemin: {
             main: {
                 options: {
@@ -67,7 +70,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: false,
                     src: ['padsquad.zip'],
-                    dest: 'wpplugin/stable.zip',
+                    dest: 'wpplugin/padsquad_<%= updateJson.version %>.zip',
                     params: {
                         ContentType: 'application/zip',
                         CacheControl: 'no-cache'
@@ -108,7 +111,6 @@ module.exports = function(grunt) {
         }]);
 
         grunt.task.run('copy:main');
-        grunt.task.run('imagemin:main');
         grunt.task.run('compress:main');
         grunt.task.run('aws_s3:production');
     });
