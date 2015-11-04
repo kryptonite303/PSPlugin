@@ -7,6 +7,25 @@ module.exports = function(grunt) {
         return;
     }
 
+    var updateJson = (function(){
+        var padsquadFile = grunt.file.read("./padsquad.php");
+        var version = padsquadFile.match(/Version:.+\d/);
+        var version = version[0].replace("Version: ", "");
+
+        var updateJson = {
+            "name": "Padsquad",
+            "slug": "padsquad",
+            "download_url": "http://asset.padsquad.com/wpplugin/stable.zip",
+            "version": version,
+            "author": "John Chen",
+            "sections": {
+                "description": "Padsquad Plugin"
+            }
+        }
+
+        grunt.file.write("update.json", JSON.stringify(updateJson));
+    })();
+
     grunt.initConfig({
         aws: readAWS(),
         imagemin: {
@@ -51,14 +70,22 @@ module.exports = function(grunt) {
                     dest: 'wpplugin/stable.zip',
                     params: {
                         ContentType: 'application/zip',
-                        ContentEncoding: 'gzip',
+                        CacheControl: 'no-cache'
+                    }
+                },
+                {
+                    expand: false,
+                    src: ['update.json'],
+                    dest: 'wpplugin/update.json',
+                    params: {
+                        ContentType: 'application/json',
                         CacheControl: 'no-cache'
                     }
                 }]
             }
         },
         compress: {
-            options:{
+            options: {
                 archive: "padsquad.zip"
             },
             main: {
@@ -81,6 +108,7 @@ module.exports = function(grunt) {
         }]);
 
         grunt.task.run('copy:main');
+        grunt.task.run('imagemin:main');
         grunt.task.run('compress:main');
         grunt.task.run('aws_s3:production');
     });
