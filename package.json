@@ -1,0 +1,26 @@
+{
+  "name": "wordpress-plugin",
+  "version": "1.0.0",
+  "description": "This plugin contains the code for the Simpli interface on the options screen as well as the automatic updating in the backend of the plugin.",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PadSquad/wordpress-plugin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PadSquad/wordpress-plugin/issues"
+  },
+  "homepage": "https://github.com/PadSquad/wordpress-plugin#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-aws-s3-gzip": "^0.10.1",
+    "grunt-contrib-compress": "^0.14.0",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-imagemin": "^0.9.4"
+  }
+}
