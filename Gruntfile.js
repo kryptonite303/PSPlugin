@@ -71,7 +71,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: './',
                     src: ['wordpress-core-plugin/assets/**', 'wordpress-core-plugin/templates/**','wordpress-core-plugin/comments.php', 'wordpress-core-plugin/functions.php', 'wordpress-core-plugin/header.php', 'wordpress-core-plugin/padsquad.php', 'wordpress-core-plugin/ps_filters.php', 'wordpress-core-plugin/ps_info_filter.php', 'wordpress-core-plugin/ps_settings.php', 'wordpress-core-plugin/sidebar-ps.php', 'wordpress-core-plugin/functions.php', 'padsquad.php', 'ps_extras.php', 'plugin-updates/**', 'header_info.php'],
-                    dest: 'bld/'
+                    dest: 'bld/psplugin'
                 }]
             },
             stable: {
@@ -79,7 +79,7 @@ module.exports = function(grunt) {
                     expand: true,
                     cwd: './',
                     src: ['wordpress-core-plugin/assets/**', 'wordpress-core-plugin/templates/**','wordpress-core-plugin/comments.php', 'wordpress-core-plugin/functions.php', 'wordpress-core-plugin/header.php', 'wordpress-core-plugin/padsquad.php', 'wordpress-core-plugin/ps_filters.php', 'wordpress-core-plugin/ps_info_filter.php', 'wordpress-core-plugin/ps_settings.php', 'wordpress-core-plugin/sidebar-ps.php', 'wordpress-core-plugin/functions.php', 'padsquad.php', 'ps_extras.php', 'plugin-updates/**', 'header_info.php'],
-                    dest: 'bld_stable/'
+                    dest: 'bld_stable/psplugin'
                 }]
             }
         },
@@ -155,8 +155,8 @@ module.exports = function(grunt) {
         },
         replace: {
             comments: {
-                src: ['bld/wordpress-core-plugin/padsquad.php'],
-                dest: 'bld/wordpress-core-plugin/padsquad.php',
+                src: ['bld/psplugin/wordpress-core-plugin/padsquad.php'],
+                dest: 'bld/psplugin/wordpress-core-plugin/padsquad.php',
                 replacements: [{
                     from: /\/\*([\s\S]*?)\*\//gm,
                     to: ''
