@@ -2,7 +2,9 @@
 .project
 .settings
 bld
+bld_stable
 *.zip
 aws-keys.json
 node_modules
 update.json
+update_beta.json
